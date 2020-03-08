@@ -15,7 +15,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Δημιουργία της διεπαφής χρήστη
+        GUI gui = new GUI();
+        // Εμφάνιση της διεπαφής χρήστη
+        gui.setVisible(true);        
     }
     
 }
