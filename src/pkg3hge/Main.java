@@ -15,9 +15,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Δημιουργία της διεπαφής χρήστη
+        // Create a new user interface
         GUI gui = new GUI();
-        // Εμφάνιση της διεπαφής χρήστη
+        // And make it visible
         gui.setVisible(true);        
     }
     
