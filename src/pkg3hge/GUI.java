@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 
 
 /**
@@ -22,16 +23,46 @@ import java.util.ArrayList;
  */
 public class GUI extends javax.swing.JFrame {
 
+    //Variables
+    private String SelectedValue;
+    private String APIkey = "X8MysYfoDqUamvxdhpTg";
 
+    public String getSelectedValue() {
+        return SelectedValue;
+    }
+
+    public void setSelectedValue(String SelectedValue) {
+        this.SelectedValue = SelectedValue;
+        System.out.println("SelectedValue: " + SelectedValue);
+    }
+    
+    
     public GUI() {
 
         initComponents();
         ArrayList<Country> Countries = new ArrayList<>();
         Countries = ReadCSV();
+
+        
+        
+        
         //Populating the iniliazed JComboBox with the Array info
         for (int i = 1; i < Countries.size(); i++)
         jComboBox2.addItem(Countries.get(i).getName());
+        
     }
+    
+    
+    //Get selected country's ISO code
+        
+//    private String extractISO(String CName, List Countries){
+//         System.out.println("CName: " + CName);       
+//        
+////        for (int i = 1; i < Countries.size(); i++)
+////        jComboBox2.addItem(Countries.get(i).getName());
+//    }
+    
+    
     
     
         private ArrayList<Country> ReadCSV() {
@@ -221,6 +252,12 @@ public class GUI extends javax.swing.JFrame {
             jTable3.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -346,13 +383,30 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //Loop through list to find the selected country
+        String sv = getSelectedValue();
+        System.out.println("sv: " + sv);       
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
- 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        
+        //Action
+        
+        //Get selected item
+        String SelectedValue = jComboBox2.getSelectedItem().toString();
+        
+        System.out.println(SelectedValue);
+        setSelectedValue(SelectedValue);
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
     
     
     
