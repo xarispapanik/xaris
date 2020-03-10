@@ -26,6 +26,7 @@ public class GUI extends javax.swing.JFrame {
     //Variables
     private String SelectedValue;
     private String APIkey = "X8MysYfoDqUamvxdhpTg";
+    
 
     public String getSelectedValue() {
         return SelectedValue;
